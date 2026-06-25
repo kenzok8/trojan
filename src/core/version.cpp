@@ -20,7 +20,7 @@
 #include "version.h"
 using namespace std;
 
-const string Version::version("1.17.1");
+const string Version::version("1.17.2");
 
 string Version::get_version() {
     return version;
