@@ -321,7 +321,7 @@ Service::Service(Config &config, bool test) :
     }
     Log::level = config.log_level;
     auto native_context = ssl_context.native_handle();
-    ssl_context.set_options(context::default_workarounds | context::no_sslv2 | context::no_sslv3 | context::single_dh_use);
+    ssl_context.set_options(context::default_workarounds | context::no_sslv2 | context::no_sslv3 | context::no_tlsv1 | context::no_tlsv1_1 | context::single_dh_use);
     configure_cipher_preferences(native_context, config.ssl);
 
     if (config.run_type == Config::SERVER) {
