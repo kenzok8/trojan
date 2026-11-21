@@ -1,11 +1,15 @@
-cmake_minimum_required(VERSION 3.7.2)
+cmake_minimum_required(VERSION 3.10)
 project(trojan CXX)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
-set(CMAKE_CXX_STANDARD 11)
+# C++17: service.cpp uses std::make_unique (C++14) in the ENABLE_MYSQL
+# branch, which only compiles today because MySQL defaults off in our
+# builds; C++17 makes it unconditional and matches Boost >= 1.85,
+# which deprecates C++11.
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 if(MSVC)

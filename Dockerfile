@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.22
 
 COPY . trojan
 RUN apk add --no-cache --virtual .build-deps \
@@ -13,8 +13,7 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk del .build-deps \
     && apk add --no-cache --virtual .trojan-rundeps \
         libstdc++ \
-        boost-system \
-        boost-program_options \
+        boost1.84-program_options \
         mariadb-connector-c
 
 WORKDIR /config

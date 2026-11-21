@@ -285,6 +285,9 @@ void load_macos_root_certificates(SSL_CTX *native_context) {
 #endif // __APPLE__
 
 void load_platform_root_certificates(SSL_CTX *native_context) {
+    // No-op on Linux (only Windows/macOS load platform roots); keep the
+    // parameter to silence -Wunused-parameter.
+    (void)native_context;
 #ifdef _WIN32
     load_windows_root_certificates(native_context);
 #endif

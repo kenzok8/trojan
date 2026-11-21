@@ -44,8 +44,11 @@ wait_port 10443
 wait_port 11080
 wait_port 20081
 
-WHOAMI=$(curl -v --socks5 127.0.0.1:11080 http://127.0.0.1:10081/whoami.txt)
-WHOAMI2=$(curl -v http://127.0.0.1:20081/whoami.txt)
+# no_proxy must be empty for this curl or curl bypasses --socks5 for
+# 127.0.0.1; --noproxy must be set for the direct curl or an http_proxy
+# (e.g. a sandbox egress proxy) intercepts it.
+WHOAMI=$(no_proxy="" NO_PROXY="" curl -v --socks5 127.0.0.1:11080 http://127.0.0.1:10081/whoami.txt)
+WHOAMI2=$(curl -v --noproxy '*' http://127.0.0.1:20081/whoami.txt)
 kill -KILL "$PID1" "$PID2" "$PID3" "$PID4" "$PID5"
 if [[ "$WHOAMI" = "true" && "$WHOAMI2" = "true" ]]; then
     exit 0

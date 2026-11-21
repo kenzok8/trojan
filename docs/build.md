@@ -6,12 +6,12 @@ We'll only cover the build process on Linux since we will be providing Windows a
 
 Install these dependencies before you build (note that the test has some [additional dependencies](https://github.com/kenzok8/trojan/blob/master/tests/LinuxSmokeTest/README.md)):
 
-- [CMake](https://cmake.org/) >= 3.7.2
+- [CMake](https://cmake.org/) >= 3.10
 - [Boost](http://www.boost.org/) >= 1.66.0
-- [OpenSSL](https://www.openssl.org/) >= 1.1.0
+- [OpenSSL](https://www.openssl.org/) >= 1.1.1
 - [libmysqlclient](https://dev.mysql.com/downloads/connector/c/)
 
-For Debian users, run `sudo apt -y install build-essential cmake libboost-system-dev libboost-program-options-dev libssl-dev default-libmysqlclient-dev` to install all the necessary dependencies.
+For Debian users, run `sudo apt -y install build-essential cmake libboost-program-options-dev libssl-dev default-libmysqlclient-dev` to install all the necessary dependencies.
 
 ## Clone
 

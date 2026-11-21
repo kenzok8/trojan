@@ -19,9 +19,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Dependencies
 
-- [CMake](https://cmake.org/) >= 3.7.2
+- [CMake](https://cmake.org/) >= 3.10
 - [Boost](http://www.boost.org/) >= 1.66.0
-- [OpenSSL](https://www.openssl.org/) >= 1.1.0
+- [OpenSSL](https://www.openssl.org/) >= 1.1.1
 - [libmysqlclient](https://dev.mysql.com/downloads/connector/c/)
 
 ## License
